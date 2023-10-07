@@ -1,0 +1,394 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&family=Syne:wght@800&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #23242a;
+}
+
+/* SignIn Css */
+.signInBox {
+    display: inline;
+    position: relative;
+    width: 400px;
+    height: 470px;
+    background: #1c1c1c;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.signInBox::after {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 470px;
+    top: -50%;
+    left: -50%;
+      background: linear-gradient(
+    0deg,
+    transparent,
+    transparent,
+    #f9d133,
+    #f9d133,
+    #f9d133
+  );
+    z-index: 1;
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: -3s;
+}
+
+.signInBorderLine {
+    position: absolute;
+    top: 0;
+    inset: 0;
+}
+
+.signInBorderLine::before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 470px;
+  top: -50%;
+  left: -50%;
+  background: linear-gradient(
+    0deg,
+    transparent,
+    transparent,
+    #1484C6,
+    #1484C6,
+    #1484C6
+  );
+  z-index: 1;
+  transform-origin: bottom right;
+  animation: animate 6s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.signInBox form {
+    position: absolute;
+    inset: 4px;
+    background: #222;
+    padding: 40px;
+    border-radius: 18px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.signInBox form h2 {
+    color: #fff;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.1em;
+}
+
+.signInBox form .inputBox {
+    position: relative;
+    width: 300px;
+    margin-top: 35px;
+}
+
+.signInBox form .inputBox input {
+    position: relative;
+    width: 100%;
+    padding: 20px 10px 10px;
+    background: transparent;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    color: #23242a;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    z-index: 10;
+}
+
+.signInBox form .inputBox span {
+    position: absolute;
+    left: 0;
+    padding: 20px 0px 10px;
+    pointer-events: none;
+    color: #e2e2e2;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+}
+
+.signInBox form .inputBox input:valid~span,
+/* .signInBox form .inputBox input:invalid~span, */
+.signInBox form .inputBox input:focus~span {
+    color: #fff;
+    font-size: 0.75em;
+    transform: translateY(-34px);
+}
+
+.signInBox form .inputBox i {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    border-radius: 7px;
+    overflow: hidden;
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.signInBox form .inputBox input:valid~i,
+/* .signInBox form .inputBox input:invalid~i, */
+.signInBox form .inputBox input:focus~i {
+    height: 44px;
+}
+
+.signInBox form .links {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 5px;
+}
+
+.signInBox form .links span, .signInBox form .links input {
+    margin: 15px 12px 20px 0;
+    font-size: 0.75em;
+    color: #d0d0d0;
+    cursor: pointer;
+}
+
+.signInBox form .links a {
+    margin: 15px 12px 20px 0;
+    font-size: 0.75em;
+    color: #fff;
+}
+
+.signInBox form .link span {
+    margin: 15px 12px 20px 0;
+    color: white;
+}
+
+.signInBox form input[type="submit"] {
+    border: none;
+    outline: none;
+    padding: 9px 25px;
+    background: #fff;
+    cursor: pointer;
+    font-size: 0.9em;
+    border-radius: 7px;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: 0.6s;
+}
+
+.signInBox form input[type="submit"]:hover {
+    background-color: #31e1f7;
+}
+
+.signInBox form input[type="submit"]:active {
+    opacity: 0.8;
+}
+
+
+/* SignUp Css */
+
+.signUpBox {
+    display: none;
+    position: relative;
+    width: 400px;
+    height: 530px;
+    background: #1c1c1c;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.signUpBox::after {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 530px;
+    top: -50%;
+    left: -50%;
+      background: linear-gradient(
+    0deg,
+    transparent,
+    transparent,
+    #f9d133,
+    #f9d133,
+    #f9d133
+  );
+    z-index: 1;
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: -3s;
+}
+
+.signUpBorderLine {
+    position: absolute;
+    top: 0;
+    inset: 0;
+}
+
+.signUpBorderLine::before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 530px;
+  top: -50%;
+  left: -50%;
+  background: linear-gradient(
+    0deg,
+    transparent,
+    transparent,
+    #1484C6,
+    #1484C6,
+    #1484C6
+  );
+  z-index: 1;
+  transform-origin: bottom right;
+  animation: animate 6s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.signUpBox form {
+    position: absolute;
+    inset: 4px;
+    background: #222;
+    padding: 25px 40px;
+    border-radius: 18px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.signUpBox form h2 {
+    color: #fff;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.1em;
+}
+
+.signUpBox form .inputBox {
+    position: relative;
+    width: 300px;
+    margin-top: 35px;
+}
+
+.signUpBox form .inputBox input {
+    position: relative;
+    width: 100%;
+    padding: 20px 10px 10px;
+    background: transparent;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    color: #23242a;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    z-index: 10;
+}
+
+.signUpBox form .inputBox span {
+    position: absolute;
+    left: 0;
+    padding: 20px 0px 10px;
+    pointer-events: none;
+    color: #e2e2e2;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+}
+
+.signUpBox form .inputBox input:valid~span,
+.signUpBox form .inputBox input:focus~span {
+    color: #fff;
+    font-size: 0.75em;
+    transform: translateY(-34px);
+}
+
+.signUpBox form .inputBox i {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    border-radius: 7px;
+    overflow: hidden;
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.signUpBox form .inputBox input:valid~i,
+.signUpBox form .inputBox input:focus~i {
+    height: 44px;
+}
+
+.signUpBox form .links {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 5px;
+}
+
+.signUpBox form .links span, .signUpBox form .links input {
+    margin: 15px 12px 20px 0;
+    font-size: 0.75em;
+    color: #d0d0d0;
+    cursor: pointer;
+}
+
+.signUpBox form .links a {
+    margin: 15px 12px 20px 0;
+    font-size: 0.75em;
+    color: #fff;
+}
+
+.signUpBox form .link span {
+    margin: 15px 12px 20px 0;
+    color: white;
+}
+
+.signUpBox form input[type="submit"] {
+    border: none;
+    outline: none;
+    padding: 9px 25px;
+    background: #fff;
+    cursor: pointer;
+    font-size: 0.9em;
+    border-radius: 7px;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: 0.6s;
+}
+
+.signUpBox form input[type="submit"]:hover {
+    background-color: #31e1f7;
+}
+
+.signUpBox form input[type="submit"]:active {
+    opacity: 0.8;
+}

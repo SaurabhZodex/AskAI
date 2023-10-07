@@ -1,0 +1,123 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ask Question</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{% static 'user/css/user.css' %}" rel="stylesheet">
+    <link href="{% static 'user/css/askQues.css' %}" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{% static 'favicons/favicon.ico' %}"/>
+    {% include '../messages/messages.html' %}
+</head>
+
+<body>
+    <div class="page">
+        <aside class="menu">
+            <p class="logo">
+                <img src="{% static 'user/img/askAI.png' %}">
+                <span>AskAI
+            </p>
+            </p>
+            <a href="{% url 'user:upload_files' %}" class="menu-item">
+                <p class="material-icons icon">upload_file</p>
+                <p class="text">Upload File</p>
+            </a>
+            <a href="{% url 'user:select_repo' %}" class="menu-item active">
+                <p class="material-icons icon">question_answer</p>
+                <p class="text">Ask Question</p>
+            </a>
+            <a href="{% url 'auths:logout' %}" class="menu-item bottom">
+                <p class="material-icons icon">logout</p>
+                <p class="text">Logout</p>
+            </a>
+        </aside>
+    </div>
+    <div class="main">
+        <div class="mainHeading">
+            <h2>Ask Question</h2>
+            <span>{{repo_type}}</span>
+            <a href="{% url 'user:select_repo' %}" class="formSubmit">Change Repository</a>
+        </div>
+        <div class="chatMainApps">
+            <div class="chatApp">
+                <div class="ChatWindow">
+                    <div class="ChatItem ChatItem--expert-AI">
+                        <div class="ChatItem-meta-AI">
+                            <div class="ChatItem-avatar-AI"> <img class="ChatItem-avatarImage-AI"
+                                    src="{% static 'user/img/askAI.png' %}" alt="AskAI">
+                            </div>
+                        </div>
+                        <div class="ChatItem-chatContent-AI">
+                            <div class="ChatItem-chatText-AI" style="margin-bottom: 10px;">Hi, I am AskAI. I am here to help you.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    {% for ques, ans, source, page_no, line in qna_list %}
+                    <!-- Question -->
+                    <div class="ChatItem ChatItem--expert">
+                        <div class="ChatItem-meta">
+                            <div class="ChatItem-avatar">
+                                 <img class="ChatItem-avatarImage" src="{% static 'user/img/profile.jpg' %}" alt="User">
+                            </div>
+                        </div>
+                        <div class="ChatItem-chatContent">
+                                <div class="ChatItem-chatText">
+                                    {{ques}} 
+                                </div>
+                        </div>
+                    </div>
+                    <!-- Answer -->    
+                    <div class="ChatItem ChatItem--expert-AI">
+                        <div class="ChatItem-meta-AI">
+                            <div class="ChatItem-avatar-AI"> <img class="ChatItem-avatarImage-AI"
+                                    src="{% static 'user/img/askAI.png' %}" alt="AskAI">
+                            </div>
+                        </div>
+                        <div class="ChatItem-chatContent-AI">
+                            <div class="ChatItem-chatText-AI">
+                                {{ans}}
+                            </div>
+                            <div class="refBtn" onclick="showDiv(this)">Show Reference</div>
+                            <div class="ChatItem-chatdetails-AI">
+                                <div><span style="color: rgb(180, 180, 180); font-weight:700">Source:&nbsp;</span> 
+                                    {{source}}
+                                </div> 
+                                <div><span style="color: rgb(180, 180, 180); font-weight:700">Page No:&nbsp;</span>
+                                    {{page_no}}
+                                </div> 
+                                <div><span style="color: rgb(180, 180, 180); font-weight:700">Line:&nbsp;</span>
+                                    {{line}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>                
+                    {% endfor %}
+
+                </div>
+                <div class="ChatInput is-hidey">
+                    <div class="ChatInput-input" contenteditable="true" placeholder="Type your question here..."></div>
+                    <div class="ChatLoading"><span class="loader"></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Add JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="{% static 'user/js/user.js' %}"></script>
+    <script src="{% static 'user/js/askQues.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+ <body>
+     {% if messages %}
+     <div class="message-popup">
+         {% for message in messages %}
+             <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+         {% endfor %}
+         
+     </div>
+     <script>
+         setTimeout(function() {
+             document.querySelector('.message-popup').style.display = 'none';
+         }, 6000);  // 1000 milliseconds = 1 seconds
+ 
+ 
+     </script>
+     <style>
+         .message-popup {
+             position:absolute;            
+             width:fit-content;
+             font-weight:500;                        
+             padding: 20px;
+             text-align: center;
+             z-index: 99; 
+             border-radius: 10px;     
+             margin: 0px;
+             top: 0px;
+             right: 0px;
+         }
+         
+         .success {
+             font-size: 16px;
+             font-family: sans-serif;
+             border-radius: 5px;     
+             background-color: #489744;
+             color: #fefefe;
+             border: 1px solid #00ac28;
+             padding: 10px 15px;
+             margin-bottom: 10px;
+             width:auto;
+         }
+         
+         .error {
+             font-size: 16px;
+             font-family: sans-serif;
+             border-radius: 5px;   
+             background-color: #ff6767;
+             color: #ffffff;
+             border: 1px solid #ff0000;
+             padding: 10px 15px;
+             margin-bottom: 10px;
+             width:auto;
+         }
+         
+     </style>
+ {% endif %}
+ </body>
+ 
+ 
+ 

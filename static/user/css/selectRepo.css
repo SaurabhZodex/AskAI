@@ -1,0 +1,65 @@
+.selectRepo{
+    overflow: auto;
+    position: relative;
+    width: 100%;
+    top: 55px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;   
+    margin-top: 16px;
+}
+
+.selectRepo h1 {
+	font-size: 18px;
+	font-weight: 600;
+	margin-bottom: 42px;
+	position: relative;
+	padding-bottom: 20px;
+}
+
+.selectRepo h1:after {
+	content: "";
+	width: 200px;
+	height: 4px;
+	background-image: linear-gradient(to right, #1484C6 0%, #f9d133 100%);
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: 0 auto;
+	border-radius: 6px;
+}
+
+.repo{
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    background: #181818;
+    border-radius: 10px;
+}
+
+.formSubmit{
+    border: none;
+    width: fit-content;
+	padding: 20px;
+	height: max-content;
+	background-color: transparent;
+	font-size: 16px;
+	border-radius: 10px;
+	text-decoration: none;
+	color: #fff;
+	text-align: center;
+    font-weight: 700;
+	cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+.formSubmit:hover{
+	background-color: #84f7ff;
+    color: #000;
+}

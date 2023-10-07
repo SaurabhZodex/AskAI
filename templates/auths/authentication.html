@@ -1,0 +1,90 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>
+    <link href="{% static 'auths/css/authentication.css' %}" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{% static 'favicons/favicon.ico' %}"/>
+    {% include '../messages/messages.html' %}
+</head>
+
+<body>
+
+    <!-- SignUp page -->
+
+    <div class="signInBox" id="signInBox">
+        <span class="signInBorderLine"></span>
+        <form action="{% url 'auths:authentication' %}" method="POST">
+            {% csrf_token %}
+            <h2>Sign In</h2>
+            <div class="inputBox">
+                <input name="email" type="email" required="required">
+                <span>Username</span>
+                <i></i>
+            </div>
+            <div class="inputBox">
+                <input name="password" type="password" id="password" required="required">
+                <span>Password</span>
+                <i></i>
+            </div>
+            <div class="links">
+                <input class="show_pass" id="passCheckbox" type="checkbox" onclick="showPassword()">
+                <span class="show-password" onclick="showPassword()">Show Password </span>
+            </div>
+            <div class="links">
+                <span>Don't have an account yet?</span>
+                <a href="#" onclick="showSignUpTab()">SignUp</a>
+            </div>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+    <!-- SignUp page -->
+
+    <div class="signUpBox" id="signUpBox">
+        <span class="signUpBorderLine"></span>
+        <form action="{% url 'auths:authentication' %}" method="POST">
+            {% csrf_token %}
+            <h2>Sign Up</h2>
+            <div class="inputBox">
+                <input name="name" type="text" required="required">
+                <span>Name</span>
+                <i></i>
+            </div>
+            <div class="inputBox">
+                <input name="email" type="email" required="required">
+                <span>Email Id</span>
+                <i></i>
+            </div>
+            <div class="inputBox">
+                <input name="password" type="password" id="signUpPassword" required="required">
+                <span>Password</span>
+                <i></i>
+            </div>
+            <div class="links">
+                <input class="show_pass" id="signUpPassCheckbox" type="checkbox" onclick="showPassword()">
+                <span class="show-password" onclick="showPassword()">Show Password </span>
+            </div>
+            <div class="links">
+                <span>Already have an account?</span>
+                <a href="#" onclick="showSignInTab()">SignIn</a>
+            </div>
+            <input id="btnSubmit" type="submit" value="Register">
+        </form>
+    </div>
+
+    <!-- Add JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="{% static 'auths/js/authentication.js' %}"></script>
+</body>
+
+</html>
